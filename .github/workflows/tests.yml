@@ -32,6 +32,8 @@ jobs:
       - name: bootstrap vcpkg
         shell: bash
         run: vcpkg/bootstrap-vcpkg.sh 
+      - name: configure cmake
+        run: cmake .
       - name: create build enviornment
         run: cmake -E make_directory ${{github.workspace}}/build
       - name: build
