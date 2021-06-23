@@ -9,7 +9,8 @@ target_link_libraries(test
 		Catch2::Catch2
 )
 target_include_directories(
-	${CMAKE_SOURCE_DIR}/include
+	PUBLIC
+		${CMAKE_SOURCE_DIR}/include
 )
 
 include(CTest)
