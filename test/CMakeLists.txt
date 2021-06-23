@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.19)
+include(cmake/Conan.cmake)
+run_conan()
 if(CONAN_CATCH2_ROOT_DEBUG)
   include(${CONAN_CATCH2_ROOT_DEBUG}/lib/cmake/Catch2/Catch.cmake)
 else()
