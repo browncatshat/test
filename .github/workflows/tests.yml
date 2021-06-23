@@ -31,7 +31,7 @@ jobs:
         run: git submodule add https://github.com/microsoft/vcpkg vcpkg/
       - name: bootstrap vcpkg
         shell: bash
-        run: vcpkg/bootstrap-vcpkg.sh
+        run: vcpkg/bootstrap-vcpkg.sh -manifests 
       - name: install catch2
         shell: bash
         run: vcpkg/vcpkg install catch2
