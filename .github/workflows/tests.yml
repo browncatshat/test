@@ -38,7 +38,7 @@ jobs:
         shell: bash
         run: cmake -S $GITHUB_WORKSPACE -B $GITHUB_WORKSPACE\build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
       - name: test
-        working-directory: ${{github.workspace}}/build
+        working-directory: ${{github.workspace}}/build/test
         shell: bash
         run: ctest -C ${{ matrix.build_type }}
       - name: JUnit Report Action
