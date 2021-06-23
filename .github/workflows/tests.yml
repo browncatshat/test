@@ -41,7 +41,7 @@ jobs:
       - name: configure cmake
         working-directory: ${{github.workspace}}/build
         shell: bash
-        run: cmake $GITHUB_WORKSPACE -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        run: cmake ${{github.workspace}} -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
       - name: build
         working-directory: ${{github.workspace}}/build
         shell: bash
