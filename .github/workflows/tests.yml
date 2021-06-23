@@ -26,12 +26,13 @@ jobs:
       - name: log CMake version
         shell: bash
         run: cmake --version
-      - name: add vcpkg submodule
+      - name: add Catch2 submodule
         shell: bash
-        run: git submodule add https://github.com/microsoft/vcpkg vcpkg/
-      - name: bootstrap vcpkg
-        shell: bash
-        run: vcpkg/bootstrap-vcpkg.sh 
+        run: git submodule add https://github.com/catchorg/Catch2
+      - name: install Catch2
+        run: |
+             cmake -Bbuild -H. -DBUILD_TESTING=OFF
+             sudo cmake --build build/ --target install
       - name: configure cmake
         run: cmake .
       - name: create build enviornment
