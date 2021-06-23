@@ -23,7 +23,7 @@ jobs:
       - name: init git
         run: git init
       - name: Checkout vcpkg
-        run: git clone https://github.com/microsoft/vcpkg
+        run: git submodule add https://github.com/microsoft/vcpkg
       # Cache/Restore the vcpkg's build artifacts using a vcpkg.json manifest.
       - name: Run vcpkg
         uses: lukka/run-vcpkg@v7
