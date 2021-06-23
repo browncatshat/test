@@ -17,7 +17,7 @@ target_include_directories(TESTEXE
 include(CTest)
 include(Catch)
 catch_discover_tests(
-  tests
+  TESTEXE
   TEST_PREFIX
   "unittests."
   REPORTER
