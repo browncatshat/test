@@ -1,0 +1,8 @@
+{
+  "name": "funnyshit",
+  "version-string": "0.0.1",
+  "license": "cc0",
+  "dependencies": [
+	"catch2"
+  ]
+}
