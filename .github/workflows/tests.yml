@@ -25,6 +25,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Checkout vcpkg
         run: git submodule add https://github.com/microsoft/vcpkg
+      - name: Log CMake version
+        run: cmake --version
       # Cache/Restore the vcpkg's build artifacts using a vcpkg.json manifest.
       - name: Run vcpkg
         uses: lukka/run-vcpkg@v7
