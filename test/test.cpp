@@ -4,10 +4,10 @@
 
 
 
-TEST_CASE("add test") {
+TEST_CASE("add test","[add]") {
     CHECK(add(1, 2) == 3);
 }
 
-TEST_CASE("multiply test") {
+TEST_CASE("multiply test","[multiply]") {
     CHECK(multiply(1, 2) == 2);
 }
