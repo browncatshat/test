@@ -16,4 +16,15 @@ target_include_directories(TESTEXE
 
 include(CTest)
 include(Catch)
-catch_discover_tests(TESTEXE)
+catch_discover_tests(
+  tests
+  TEST_PREFIX
+  "unittests."
+  REPORTER
+  xml
+  OUTPUT_DIR
+  ${CMAKE_SOURCE_DIR}
+  OUTPUT_PREFIX
+  "unittests."
+  OUTPUT_SUFFIX
+  .xml)
