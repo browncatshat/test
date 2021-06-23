@@ -23,6 +23,12 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v2
+      - name: Add msbuild to PATH
+        if: runner.os == 'Windows'
+        uses: microsoft/setup-msbuild@v1.0.2
+      - name: Log VS installation info
+        if: runner.os == 'Windows'
+        run: vswhere -all -prerelease
       - name: log CMake version
         shell: bash
         run: cmake --version
