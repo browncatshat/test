@@ -28,8 +28,9 @@ jobs:
         run: cmake --version
       - name: add Catch2 submodule
         shell: bash
-        run: git submodule add https://github.com/catchorg/Catch2
+        run: git submodule add https://github.com/catchorg/Catch2 catch2/
       - name: install Catch2
+        working-directory: ${{github.workspace}}/catch2
         run: |
              cmake -Bbuild -H. -DBUILD_TESTING=OFF
              sudo cmake --build build/ --target install
