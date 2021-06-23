@@ -35,9 +35,11 @@ jobs:
       - name: create build enviornment
         run: cmake -E make_directory ${{github.workspace}}/build
       - name: build
+        working-directory: ${{github.workspace}}/build
         shell: bash
         run: cmake --build . --config ${{ matrix.build_type }}
       - name: test
+        working-directory: ${{github.workspace}}/build
         shell: bash
         run: ctest -C ${{ matrix.build_type }}
           
