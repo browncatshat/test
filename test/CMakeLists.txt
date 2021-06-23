@@ -8,6 +8,9 @@ target_link_libraries(test
 		${PROJECT_NAME}
 		Catch2::Catch2
 )
+target_include_directories(
+	${CMAKE_SOURCE_DIR}/include
+)
 
 include(CTest)
 include(ParseAndAddCatchTests)
