@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.19)
 find_package(Catch2 REQUIRED PATHS ${CMAKE_SOURCE_DIR}/build/)
-add_executable(test 
+add_executable(TESTEXE 
 	test.cpp
 )
-target_link_libraries(test 
+target_link_libraries(TESTEXE 
 	PUBLIC
 		${PROJECT_NAME}
 		Catch2::Catch2
 )
-target_include_directories(test
+target_include_directories(tesTESTEXEt
 	PRIVATE
 		${CMAKE_SOURCE_DIR}/catch2/src
 )
@@ -16,15 +16,4 @@ target_include_directories(test
 
 include(CTest)
 include(Catch)
-catch_discover_tests(
-  test
-  TEST_PREFIX
-  "tests."
-  REPORTER
-  JUnit
-  OUTPUT_DIR
-  ${CMAKE_CURRENT_BINARY_DIR}
-  OUTPUT_PREFIX
-  "tests."
-  OUTPUT_SUFFIX
-  .xml)
+catch_discover_tests(TESTEXE)
