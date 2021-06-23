@@ -11,4 +11,4 @@ target_link_libraries(test
 
 include(CTest)
 include(ParseAndAddCatchTests)
-catch_discover_tests(test)
+ParseAndAddCatchTests(test)
