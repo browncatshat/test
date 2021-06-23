@@ -8,7 +8,7 @@ target_link_libraries(TESTEXE
 		${PROJECT_NAME}
 		Catch2::Catch2
 )
-target_include_directories(tesTESTEXEt
+target_include_directories(TESTEXE
 	PRIVATE
 		${CMAKE_SOURCE_DIR}/catch2/src
 )
