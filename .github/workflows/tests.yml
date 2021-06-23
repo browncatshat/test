@@ -37,7 +37,7 @@ jobs:
       - name: cmake build
         shell: bash
         run: cmake -S $GITHUB_WORKSPACE -B $GITHUB_WORKSPACE\build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-      - name: test
+      - name: run tests
         working-directory: ${{github.workspace}}/testbuild
         shell: bash
         run: ctest -C ${{ matrix.build_type }}
