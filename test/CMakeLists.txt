@@ -15,5 +15,5 @@ target_include_directories(test
 
 
 include(CTest)
-include(ParseAndAddCatchTests)
-ParseAndAddCatchTests(test)
+include(Catch)
+catch_discover_tests(test)
