@@ -42,5 +42,6 @@ jobs:
         shell: bash
         run: ctest -C ${{ matrix.build_type }}
       - name: JUnit Report Action
+        working-directory: ${{github.workspace}}/build
         uses: mikepenz/action-junit-report@v2.4.3
 
