@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-find_package(Catch2 REQUIRED)
+find_package(Catch2 REQUIRED PATHS ${CMAKE_SOURCE_DIR}/build/)
 add_executable(test 
 	test.cpp
 )
