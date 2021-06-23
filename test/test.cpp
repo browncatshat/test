@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
 
-#include <lib.h>
+#include <lib.hpp>
 
 TEST_CASE("add") {
     REQUIRE(add(1, 2) == 3);
