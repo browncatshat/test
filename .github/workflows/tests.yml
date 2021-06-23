@@ -19,12 +19,6 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v2
-      - name: Add msbuild to PATH
-        if: runner.os == 'Windows'
-        uses: microsoft/setup-msbuild@v1.0.2
-      - name: Log VS installation info
-        if: runner.os == 'Windows'
-        run: vswhere -all -prerelease
       - name: log CMake version
         shell: bash
         run: cmake --version
@@ -40,14 +34,9 @@ jobs:
         run: |
              cmake -Bbuild -H. -DBUILD_TESTING=OFF -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/build
              cmake --build build/ --target install 
-      - name: configure cmake
-        working-directory: ${{github.workspace}}/build
+      - name: cmake build
         shell: bash
-        run: cmake ${{github.workspace}} -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-      - name: build
-        working-directory: ${{github.workspace}}/build
-        shell: bash
-        run: cmake --build . --config ${{ matrix.build_type }}
+        run: cmake -S ${{github.workspace}}/build -B ${{github.workspace}} -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
       - name: test
         working-directory: ${{github.workspace}}/build
         shell: bash
