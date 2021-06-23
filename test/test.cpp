@@ -1,5 +1,5 @@
-#include <catch2/internal/catch_main.hpp>
-#include <catch2/catch_test_macros.hpp>
+#define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
 #include <lib.hpp>
 
 
