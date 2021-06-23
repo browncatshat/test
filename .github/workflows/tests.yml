@@ -16,6 +16,7 @@ jobs:
         build_type: [Release, Debug]
 
     env:
+      buildDir: '${{ github.workspace }}/build'
       CC: ${{ matrix.platform.cc }}
       CXX: ${{ matrix.platform.cxx }}
 
