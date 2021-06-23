@@ -16,4 +16,15 @@ target_include_directories(test
 
 include(CTest)
 include(Catch)
-add_test(NAME test COMMAND test -r junit -o test-report.xml)
+catch_discover_tests(
+  test
+  TEST_PREFIX
+  "tests."
+  REPORTER
+  JUnit
+  OUTPUT_DIR
+  .
+  OUTPUT_PREFIX
+  "tests."
+  OUTPUT_SUFFIX
+  .xml)
