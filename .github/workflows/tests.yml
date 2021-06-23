@@ -23,31 +23,33 @@ jobs:
     steps:
       - name: checkout repository
         uses: actions/checkout@v2
-      - name: Add msbuild to PATH
-        if: runner.os == 'Windows'
-        uses: microsoft/setup-msbuild@v1.0.2
-      - name: Log VS installation info
-        if: runner.os == 'Windows'
-        run: vswhere -all -prerelease
+      - name: Cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-conan-modules
+        with:
+          path: |
+                ${{ env.CONAN_USER_HOME }}
+                ~/.cache/pip
+          key: ${{ runner.os }}-${{ env.BUILD_TYPE }}-${{ hashFiles('CMakeLists.txt') }}-${{ hashFiles('cmake/Conan.cmake') }}
       - name: log CMake version
         shell: bash
         run: cmake --version
-      - name: add Catch2 submodule
-        shell: bash
-        run: git submodule add https://github.com/catchorg/Catch2 catch2/
       - name: create build enviornment
         shell: bash
         run: cmake -E make_directory ${{github.workspace}}/build
-      - name: install Catch2
+      - name: Install conan
         shell: bash
-        working-directory: ${{github.workspace}}/catch2
         run: |
-             cmake -Bbuild -H. -DBUILD_TESTING=OFF -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/build
-             cmake --build build/ --target install 
+             python3 -m pip install --upgrade pip setuptools
+             python3 -m pip install conan
+             source ~/.profile
       - name: configure cmake
         working-directory: ${{github.workspace}}/build
         shell: bash
-        run: cmake ${{github.workspace}} -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+        run: |
+             source ~/.profile
+             cmake ${{github.workspace}} -DCMAKE_BUILD_TYPE=${{matrix.build_type}}
       - name: build
         working-directory: ${{github.workspace}}/build
         shell: bash
