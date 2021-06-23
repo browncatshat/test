@@ -19,6 +19,9 @@ jobs:
       buildDir: '${{ github.workspace }}/build'
       CC: ${{ matrix.platform.cc }}
       CXX: ${{ matrix.platform.cxx }}
+      CONAN_SYSREQUIRES_MODE: enabled
+      CONAN_USER_HOME: "${{ github.workspace }}/conan-cache"
+      CONAN_USER_HOME_SHORT: "${{ github.workspace }}/conan-cache/short"
 
     steps:
       - name: checkout repository
