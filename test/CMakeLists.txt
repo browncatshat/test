@@ -23,7 +23,7 @@ catch_discover_tests(
   REPORTER
   JUnit
   OUTPUT_DIR
-  .
+  ${CMAKE_CURRENT_BINARY_DIR}
   OUTPUT_PREFIX
   "tests."
   OUTPUT_SUFFIX
