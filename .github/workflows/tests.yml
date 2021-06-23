@@ -29,6 +29,9 @@ jobs:
       - name: add Catch2 submodule
         shell: bash
         run: git submodule add https://github.com/catchorg/Catch2 catch2/
+      - name: checkout correct Catch2 branch
+        shell: bash
+        run: git checkout v2.x
       - name: create build enviornment
         run: cmake -E make_directory ${{github.workspace}}/build
       - name: install Catch2
