@@ -42,7 +42,8 @@ jobs:
       - name: run tests
         working-directory: ${{github.workspace}}/build/test
         shell: bash
-        run: ctest -C ${{ matrix.build_type }}
+        run: ctest -C ${{ matrix.build_type }};
+        continue-on-error: true
       - name: JUnit Report Action
         uses: mikepenz/action-junit-report@v2.4.3
         with:
