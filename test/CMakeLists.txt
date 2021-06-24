@@ -23,4 +23,5 @@ catch_discover_tests(
   OUTPUT_DIR ${CMAKE_SOURCE_DIR}
   OUTPUT_PREFIX "unittests."
   OUTPUT_SUFFIX .xml
+  EXTRA_ARGS -s
 )
