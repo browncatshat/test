@@ -24,7 +24,7 @@ jobs:
         run: cmake --version
       - name: add Catch2 submodule
         shell: bash
-        run: git submodule add https://github.com/catchorg/Catch2 catch2/
+        run: git submodule add -b v2.x -- https://github.com/catchorg/Catch2 catch2/
       - name: create build enviornment
         shell: bash
         run: cmake -E make_directory $GITHUB_WORKSPACE/build
