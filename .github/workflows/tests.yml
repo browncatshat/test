@@ -1,7 +1,7 @@
   # Sample when vcpkg is a submodule of your repository (highly recommended!)
 name: Run tests test
 on: [push]
-jobs: 
+jobs:
   build:
     runs-on: ${{ matrix.platform.os }}
     strategy:
@@ -33,12 +33,12 @@ jobs:
         working-directory: ${{github.workspace}}/catch2
         run: |
              cmake -Bbuild -H. -DBUILD_TESTING=OFF -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/build
-             cmake --build build/ --target install 
+             cmake --build build/ --target install
       - name: cmake build
         shell: bash
         run: cmake -S $GITHUB_WORKSPACE -B $GITHUB_WORKSPACE/build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
       - name: run tests
-        working-directory: ${{github.workspace}}/build
+        working-directory: ${{github.workspace}}/build/test
         shell: bash
         run: ctest -C ${{ matrix.build_type }}
       - name: JUnit Report Action
