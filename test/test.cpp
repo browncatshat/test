@@ -10,4 +10,7 @@ TEST_CASE("add test","[add]") {
 
 TEST_CASE("multiply test","[multiply]") {
     CHECK(multiply(1, 2) == 2);
+    #ifdef _MSC_VER
+    FAIL("oops");
+    #endif
 }
